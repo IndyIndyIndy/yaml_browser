@@ -31,5 +31,10 @@
     "replace": {
         "yaml_browser": "self.version",
         "typo3-ter/yaml_browser": "self.version"
-    }
+    },
+    "extra": {
+      "typo3/cms": {
+         "extension-key": "yaml_browser"
+      }
+   }
 }
