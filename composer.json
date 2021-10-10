@@ -14,9 +14,9 @@
             "role": "Developer"
         }
     ],
-    "version": "1.0.0",
     "require": {
-        "typo3/cms-core": "^9.5.0"
+        "typo3/cms-core": "^9.5.0 | ^10.4.0 | ^11.5.0",
+        "typo3/cms-form": "^9.5.0 | ^10.4.0 | ^11.5.0"
     },
     "autoload": {
         "psr-4": {
@@ -31,5 +31,10 @@
     "replace": {
         "yaml_browser": "self.version",
         "typo3-ter/yaml_browser": "self.version"
-    }
+    },
+    "extra": {
+      "typo3/cms": {
+         "extension-key": "yaml_browser"
+      }
+   }
 }
