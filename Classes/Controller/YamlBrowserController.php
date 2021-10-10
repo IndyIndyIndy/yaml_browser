@@ -151,10 +151,17 @@ class YamlBrowserController
         $configurationJson = TreeUtility::getJSON($configuration);
         $matchesText = LocalizationUtility::translate('matches', 'yaml_browser');
 
+        $pageRenderer = GeneralUtility::makeInstance(PageRenderer::class);
+        $pageRenderer->addHeaderData('
+            <script type="application/json" id="yaml-configuration">
+                '. $configurationJson .'
+            </script>
+        ');
+
         $this->pageRenderer->loadRequireJsModule(
             'TYPO3/CMS/YamlBrowser/YamlBrowser',
             "function(YamlBrowser) {
-                var configurationJson = '".$configurationJson."';
+                var configurationJson = document.getElementById('yaml-configuration').innerHTML;
                 var matchesText = '".$matchesText."';
 			    YamlBrowser.init(configurationJson, matchesText);
 		    }"
